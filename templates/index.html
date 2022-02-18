@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}'s movieList</title>
+    <link rel="icon" href ="{{ url_for('static',filename='goland.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"
+</head>
+<body>
+    <img alt="beautiful" class='beautiful'src="{{ url_for('static',filename='images/beautiful.jpeg') }}">
+    <h2>{{ name }}'s movieList</h2>
+    <p>
+        {{ movies|length }} Titles
+    </p>
+    <ul class="movie-list">
+        {% for movie in movies %}
+        <li>{{ movie.title }}-{{ movie.year }}</li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <small>&copy;2018<a href="http://helloflsk.com/tutorial">HelloFlask</a></small>
+    </footer>
+        <img alt="orgin"class="orgin" src="{{ url_for('static',filename='images/orgin.jpeg') }}">
+</body>
+</html>
