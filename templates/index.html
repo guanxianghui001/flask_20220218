@@ -7,12 +7,19 @@
         {% for movie in movies %}
         <li>{{ movie.title }}-{{ movie.year }}
         <span class="float-right">
+             <a class="btn" href="{{ url_for('edit', movie_id=movie.id) }}">Edit</a>
+            <a class="btn" href="{{ url_for('delete', movie_id=movie.id) }}">Delete</a>
     <a class="imdb" href="https://movie.douban.com/subject_search?search_text={{ movie.title }}" target="_blank" title="Find this movie on douban">豆瓣链接</a>
     </span>
         </li>
 
         {% endfor %}
     </ul>
+    <form method="post">
+    Name <input type="text" name="title" autocomplete="off" required>
+    Year <input type="text" name="year" autocomplete="off" required>
+    <input class="btn" type="submit" name="submit" value="Add">
+</form>
 
         <img alt="orgin"class="orgin" src="{{ url_for('static',filename='images/orgin.jpeg') }}">
 {% endblock %}
