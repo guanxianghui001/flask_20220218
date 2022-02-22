@@ -95,7 +95,12 @@ input[type=text] {
 input[name=year] {
     width: 50px;
 }
-
+input[name=Message] {
+    width: 500px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    height:70px;
+}
 .btn {
     font-size: 12px;
     padding: 3px 5px;

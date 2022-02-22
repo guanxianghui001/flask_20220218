@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>留言</h3>
+
+  <ul class="message-list">
+        {% for message in Lave_message %}
+        <li>{{ message.name }}-{{ message.message }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form method="post">
+
+        Uaername <input type="text" name="Username" autocomplete="off" required>
+        Message <input type="text" name="Message" autocomplete="off" required>
+        <input class="btn" type="submit" name="submit" value="提交">
+    </form>
+
+{% endblock %}

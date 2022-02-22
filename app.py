@@ -1,4 +1,6 @@
+#coding=utf-8
 import sys
+from datetime import datetime
 from flask import Flask,render_template,request,flash,redirect,url_for
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -46,6 +48,11 @@ class Movie(db.Model):  # 表名将会是 movie
     id = db.Column(db.Integer, primary_key=True)  # 主键
     title = db.Column(db.String(60))  # 电影标题
     year = db.Column(db.String(4))  # 电影年份
+class Leave_message(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    name=db.Column(db.String(20),unique=True)
+    message=db.Column(db.Text)
+    create_time=db.Column(db.DateTime)
 @app.context_processor
 def inject_user():
     user=User.query.first()
@@ -77,6 +84,21 @@ def login():
         return redirect(url_for('login'))  # 重定向回登录页面
 
     return render_template('login.html')
+@app.route('/message', methods=['GET', 'POST'])
+def message():
+    if request.method == 'POST':
+        Username = request.form['Username']
+        Message = request.form['Message']
+
+        if not Username or not Message:
+            flash('Invalid input.')
+            return redirect(url_for('Message'))
+        m=(Leave_message(name=Username,message=Message,create_time=datetime.now()))
+        db.session.add(m)
+        db.session.commit()
+        return redirect(url_for('message'))
+    return render_template('message.html')
+
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method == 'POST':
