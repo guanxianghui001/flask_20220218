@@ -1,19 +1,52 @@
-{% extends 'base.html' %}
-{% block content %}
-<h3>留言</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
 
+</head>
+<body>
+<header>
+<h1 class="text-center display-4">
+     <a class="text-success" href={{ url_for('message') }} >
+        <strong>Say Hello</strong>
+     </a>
+    <small class="text-muted sub-title">to the world</small>
+    </h1>
+</header>
+<h3>留言</h3>
+<p>{{ messageall.name }}</p>
   <ul class="message-list">
-        {% for message in Lave_message %}
-        <li>{{ message.name }}-{{ message.message }}
+        {% for message in messageall %}
+        <li>{{ message.name }}-{{ message.message }}--{{ message.create_time }}
         </li>
         {% endfor %}
     </ul>
 
-    <form method="post">
+{#    <form method="post">#}
+{##}
+{#        Uaername <input type="text" name="Username" autocomplete="off" required>#}
+{#        Message <input type="text" name="Message" autocomplete="off" required>#}
+{#        <input class="btn" type="submit" name="submit" value="提交">#}
+{#    </form>#}
+<div class="hello-form">
+            <form action="/" method="post" class="form" role="form">
+        <input id="csrf_token" name="csrf_token" type="hidden" value="ImUzZmU4NjJiOTdhZWRjY2JmNTNiNjZiYWM2ZTMwZjQ3MGUyNzNkZjEi.YhXcqA.xmsyUF92b5Px015M-2kYVJr9Iwc">
+<div class="form-group required"><label class="form-control-label" for="name">Your Name</label>
+                        <input class="form-control" id="name" name="name" required="" type="text" value="">
+        </div>
 
-        Uaername <input type="text" name="Username" autocomplete="off" required>
-        Message <input type="text" name="Message" autocomplete="off" required>
-        <input class="btn" type="submit" name="submit" value="提交">
-    </form>
 
-{% endblock %}
+<div class="form-group required"><label class="form-group" for="body">Message</label>
+
+                        <textarea class="form-group form-control" id="body" name="body" required=""></textarea>
+
+
+
+
+            <input class=" btn btn-secondary" id="submit" name="submit" type="submit" value="Submit">
+
+
+
+    </div>
+
+</body>

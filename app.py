@@ -86,6 +86,7 @@ def login():
     return render_template('login.html')
 @app.route('/message', methods=['GET', 'POST'])
 def message():
+    messageall=Leave_message.query.all()
     if request.method == 'POST':
         Username = request.form['Username']
         Message = request.form['Message']
@@ -97,7 +98,7 @@ def message():
         db.session.add(m)
         db.session.commit()
         return redirect(url_for('message'))
-    return render_template('message.html')
+    return render_template('message.html',messageall=messageall)
 
 @app.route('/',methods=['GET','POST'])
 def index():
@@ -133,7 +134,7 @@ def edit(movie_id):
         movie.year=year
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('index.html',movie=movie)
+    return render_template('edit.html',movie=movie)
 @app.route('/add',methods=['GET','POST'])
 @login_required
 def add():
