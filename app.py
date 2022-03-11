@@ -1,4 +1,5 @@
 #coding=utf-8
+import settings
 import sys
 from datetime import datetime
 from flask import Flask,render_template,request,flash,redirect,url_for
@@ -6,19 +7,6 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import LoginManager,UserMixin,login_user,login_required, logout_user,current_user
-# name = 'Grey Li'
-# movies = [
-#     {'title': 'My Neighbor Totoro', 'year': '1988'},
-#     {'title': 'Dead Poets Society', 'year': '1989'},
-#     {'title': 'A Perfect World', 'year': '1993'},
-#     {'title': 'Leon', 'year': '1994'},
-#     {'title': 'Mahjong', 'year': '1996'},
-#     {'title': 'Swallowtail Butterfly', 'year': '1996'},
-#     {'title': 'King of Comedy', 'year': '1999'},
-#     {'title': 'Devils on the Doorstep', 'year': '1999'},
-#     {'title': 'WALL-E', 'year': '2008'},
-#     {'title': 'The Pork of Music', 'year': '2012'},
-# ]
 WIN=sys.platform.startswith('win')
 if WIN:
     prefix='sqlite:///'
@@ -28,6 +16,7 @@ app = Flask(__name__)
 app.secret_key = 'dev'
 app.config['SQLALCHEMY_DATABASE_URI']=prefix+os.path.join(app.root_path,'data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+# app.config.from_object(settings.Test)
 db=SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
@@ -230,4 +219,4 @@ def page_not_found(e):
     return render_template('404.html',user=user),404
 if __name__ == '__main__':
     app.secret_key = 'kasdjh@7834jsdfwse45'
-    app.run(debug=True,host='0.0.0.0')
+    app.run(DEBUG=True,host='0.0.0.0')
