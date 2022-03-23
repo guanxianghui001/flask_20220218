@@ -1,10 +1,13 @@
 #coding=utf-8
 import settings
+import logging
+from logging.handlers import RotatingFileHandler
 import sys
 from datetime import datetime
 from flask import Flask,render_template,request,flash,redirect,url_for
 import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import get_debug_queries
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import LoginManager,UserMixin,login_user,login_required, logout_user,current_user
 WIN=sys.platform.startswith('win')
@@ -16,7 +19,15 @@ app = Flask(__name__)
 app.secret_key = 'dev'
 app.config['SQLALCHEMY_DATABASE_URI']=prefix+os.path.join(app.root_path,'data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-# app.config.from_object(settings.Test)
+app.config['DATABASE_QUERY_TIMEOUT']=0.00001
+app.config['SQLALCHEMY_RECORD_QUERIES']=True
+formatter=logging.Formatter(
+"[%(asctime)s]{%(pathname)s:%(lineno)d}%(levelname)s -%(message)s"
+)
+handler=RotatingFileHandler('slow_query.log',maxBytes=10000,backupCount=10)
+handler.setLevel(logging.WARN)
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
 db=SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
@@ -130,7 +141,7 @@ def add():
     if request.method == 'POST':
         title=request.form['title']
         year=request.form['year']
-        if not title or not year or len(year)>4 or len(title) > 60:
+        if not title or not year or len(year) > 4 or len(title) > 60:
             flash('Invalid Input')
             return redirect(url_for('edit',movie_id=movie_id))
         m=Movie(title=title,year=year)
@@ -217,6 +228,15 @@ def forge():
 def page_not_found(e):
     user=User.query.first()
     return render_template('404.html',user=user),404
+@app.after_request
+def after_request(response):
+    for query in get_debug_queries():
+        if query.duration >= app.config['DATABASE_QUERY_TIMEOUT']:
+            app.logger.warn(
+                ('Context:{}\nSLOW QUERY:{}\nParameters:{}\n'
+                 'Duration:{}\n').format(query.context,query.statement,query.parameters,query.duration)
+            )
+    return response
 if __name__ == '__main__':
     app.secret_key = 'kasdjh@7834jsdfwse45'
     app.run(DEBUG=True,host='0.0.0.0')

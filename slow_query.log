@@ -1,0 +1,73 @@
+[2022-03-23 18:52:43,382]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:118 (index)
+SLOW QUERY:SELECT movie.id AS movie_id, movie.title AS movie_title, movie.year AS movie_year 
+FROM movie
+Parameters:()
+Duration:0.0005068999999999768
+
+[2022-03-23 18:52:43,382]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00015039999999988396
+
+[2022-03-23 19:09:03,872]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:36 (load_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?
+Parameters:(1,)
+Duration:0.00032320000000041205
+
+[2022-03-23 19:09:03,872]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:126 (edit)
+SLOW QUERY:SELECT movie.id AS movie_id, movie.title AS movie_title, movie.year AS movie_year 
+FROM movie 
+WHERE movie.id = ?
+Parameters:(4,)
+Duration:0.00011150000000004212
+
+[2022-03-23 19:09:03,872]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00010250000000056048
+
+[2022-03-23 19:09:08,306]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:36 (load_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?
+Parameters:(1,)
+Duration:0.0003000999999986931
+
+[2022-03-23 19:09:08,307]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:126 (edit)
+SLOW QUERY:SELECT movie.id AS movie_id, movie.title AS movie_title, movie.year AS movie_year 
+FROM movie 
+WHERE movie.id = ?
+Parameters:(4,)
+Duration:0.00011970000000083303
+
+[2022-03-23 19:09:08,307]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:135 (edit)
+SLOW QUERY:UPDATE movie SET title=? WHERE movie.id = ?
+Parameters:('ÌÓÑ§ÍþÁú2', 4)
+Duration:0.000631299999998447
+
+[2022-03-23 19:09:08,317]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:118 (index)
+SLOW QUERY:SELECT movie.id AS movie_id, movie.title AS movie_title, movie.year AS movie_year 
+FROM movie
+Parameters:()
+Duration:0.0002424999999988131
+
+[2022-03-23 19:09:08,317]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:36 (load_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?
+Parameters:(1,)
+Duration:0.00010639999999995098
+
+[2022-03-23 19:09:08,317]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:9.140000000051884e-05
+
