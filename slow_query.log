@@ -71,3 +71,136 @@ FROM user
 Parameters:(1, 0)
 Duration:9.140000000051884e-05
 
+[2022-03-31 17:36:03,148]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:118 (index)
+SLOW QUERY:SELECT movie.id AS movie_id, movie.title AS movie_title, movie.year AS movie_year 
+FROM movie
+Parameters:()
+Duration:0.0024111000000002214
+
+[2022-03-31 17:36:03,148]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00012129999999999086
+
+[2022-03-31 17:40:31,049]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00037300000002460365
+
+[2022-03-31 17:40:41,132]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:76 (login)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00031289999998307394
+
+[2022-03-31 17:40:41,144]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:118 (index)
+SLOW QUERY:SELECT movie.id AS movie_id, movie.title AS movie_title, movie.year AS movie_year 
+FROM movie
+Parameters:()
+Duration:0.0003189000000247688
+
+[2022-03-31 17:40:41,145]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:36 (load_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?
+Parameters:(1,)
+Duration:0.0005955999999969208
+
+[2022-03-31 17:40:41,145]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.0006204999999681604
+
+[2022-03-31 17:58:31,434]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:89 (message)
+SLOW QUERY:SELECT leave_message.id AS leave_message_id, leave_message.name AS leave_message_name, leave_message.message AS leave_message_message, leave_message.create_time AS leave_message_create_time 
+FROM leave_message
+Parameters:()
+Duration:0.0006334999998216517
+
+[2022-03-31 17:58:31,435]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:36 (load_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?
+Parameters:(1,)
+Duration:0.0002197999999680178
+
+[2022-03-31 17:58:31,435]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00016770000001997687
+
+[2022-03-31 17:58:31,469]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:229 (page_not_found)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.000557399999934205
+
+[2022-03-31 17:58:31,469]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.0004177999999228632
+
+[2022-03-31 17:58:31,496]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:229 (page_not_found)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.0005280000000311702
+
+[2022-03-31 17:58:31,496]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00031730000000607106
+
+[2022-03-31 17:58:36,715]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:89 (message)
+SLOW QUERY:SELECT leave_message.id AS leave_message_id, leave_message.name AS leave_message_name, leave_message.message AS leave_message_message, leave_message.create_time AS leave_message_create_time 
+FROM leave_message
+Parameters:()
+Duration:0.00038740000013604003
+
+[2022-03-31 17:58:36,716]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:99 (message)
+SLOW QUERY:INSERT INTO leave_message (name, message, create_time) VALUES (?, ?, ?)
+Parameters:('123', '123123', '2022-03-31 17:58:36.706696')
+Duration:0.0032993999998325307
+
+[2022-03-31 17:58:36,724]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:89 (message)
+SLOW QUERY:SELECT leave_message.id AS leave_message_id, leave_message.name AS leave_message_name, leave_message.message AS leave_message_message, leave_message.create_time AS leave_message_create_time 
+FROM leave_message
+Parameters:()
+Duration:0.00091759999986607
+
+[2022-03-31 17:58:36,724]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:36 (load_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.id = ?
+Parameters:(1,)
+Duration:0.00016340000001946464
+
+[2022-03-31 17:58:36,724]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:58 (inject_user)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00015380000013465178
+
+[2022-03-31 17:58:36,742]{E:\flask_20220218\app.py:235}WARNING -Context:E:\flask_20220218\app.py:229 (page_not_found)
+SLOW QUERY:SELECT user.id AS user_id, user.name AS user_name, user.username AS user_username, user.password_hash AS user_password_hash 
+FROM user
+ LIMIT ? OFFSET ?
+Parameters:(1, 0)
+Duration:0.00044129999992037483
+
